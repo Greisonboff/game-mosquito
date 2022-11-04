@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="application-style.css">
+</head>
+
+<body>
+    <div id="ytplayer">
+    </div>
+    <div id="containerMain">
+        <div id="container">
+            <div id="startPage" style="margin: 3em;">
+                <p id="welcome" style="font-size: 25px;margin-bottom: 1em;">Welcome to Mosquito<br><span
+                        style="color: red;">Killer</span></p>
+                <input class="userName" placeholder="User name">
+                <button id="start" onclick='validStart()'>Start</button>
+                <button id="rules" onclick="rulesPageInteraction('on')">Rules</button>
+                <img id="homeImg" src="img/fundo1.png">
+            </div>
+            <div id="rulesPage" style="display: none;">
+                <button id="" onclick="selectLanguage()">Select the language</button>
+                <button id="" onclick="showStart(),rulesPageInteraction('of')">Return</button>
+                <ul>
+                    <li>
+                        <img src="img/mosquito-bravo.png">
+                        <p class="language1">Killing standard mosquito equals 1 point and 1 second of time</p>
+                        <p class="language2 hideElemens">Matar mosquito padão equivale a 1 ponto e 1 segundo de tempo</p>
+                    </li>
+                    <li>
+                        <img src="img/mosquito-especial1.png">
+                        <p class="language1">Killing special yellow mosquito equals 5 points and 1 second of time</p>
+                        <p class="language2 hideElemens">Matar mosquito especial amarelo equivale a 5 pontos e 1 segundo de tempo</p>
+                    </li>
+                    <li>
+                        <img src="img/mosquito-especial2.png">
+                        <p class="language1">Killing Blue Special Mosquito equals 10 points and 1 second of time</p>
+                        <p class="language2 hideElemens">Matar mosquito especial azul equivale a 10 pontos e 1 segundo de tempo</p>
+                    </li>
+                    <li>
+                        <img src="img/mosquito-alpha.png">
+                        <p class="language1">Killing special alpha mosquito equals 1 points and 10 seconds of time</p>
+                        <p class="language2 hideElemens" >Matar mosquito especial alpha equivale a 1 pontos e 10 segundo de tempo</p>
+                    </li>
+                    <li>
+                        <img src="img/abelha.png">
+                        <p class="language1">Killing the bee equals -10 points and -10 seconds of time</p>
+                        <p class="language1" style="display: block;">Letting the bee live equals 10 points</p>
+                        <p class="language2 hideElemens">Matar a abelha equivale a - 10 pontos e - 10 segundo de tempo</p>
+                        <p class="language2 hideElemens" style="display: block;">Deixar a abelha viver equivale a 10 pontos</p>
+                    </li>
+                    <li style="margin: 30px;">
+                        <p class="language1">If you have more than 75 mosquitoes<p class="language1" style="color: red;margin-left: 6px;">Game Over</p></p>
+                        <p class="language2 hideElemens">Se tiver mais de 75 mosquitos<p class="language2 hideElemens" style="color: red;margin-left: 6px;">Fim de jogo</p></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="info">
+            <div id="divRecord">
+                <p>Records</p>
+                <p id="records">Level: <span>0</span> Points: <span>0</span></p>
+            </div>
+            <div id="divTimer">
+                <p>Time</p>
+                <p><span id="timerA">01</span><span id="timeSeparator">:</span><span id="timerB">00</span></p>
+            </div>
+            <div id="divCont">
+                <p>Points</p>
+                <p id="cont">0</p>
+            </div>
+            <div id="divLevel">
+                <p>Level</p>
+                <p id="userLevel">0</p>
+            </div>
+            <div style=" border: none; display: inline-flex;">
+                <button id="reset" onclick="showStart(),resetElements()"><img id="resetImg"
+                        src="img/reset.jpg">Reset</button>
+                <button id="pause" onclick="pauseGame(this)"><img>Pause</button>
+            </div>
+            <div id="sound">
+                <p>Sound</p>
+                <img onclick="videoId()" src="img/previous-next.png">
+                <img onclick="player.pauseVideo()" src="img/pausa.png">
+                <img onclick="player.playVideo()" src="img/play.png">
+                <img onclick="videoId('next')" src="img/previous-next.png" style="transform: rotate(180deg)">
+                <div id="containerVolume">
+                    <p id="sound-down"><img src="img/audioDown.png" onclick="upDownSound('down')"></p>
+                    <div class="volume activeVolume" data-size="1"></div>
+                    <div class="volume activeVolume" data-size="2"></div>
+                    <div class="volume activeVolume" data-size="3"></div>
+                    <div class="volume" data-size="4"></div>
+                    <div class="volume" data-size="5"></div>
+                    <div class="volume" data-size="6"></div>
+                    <div class="volume" data-size="7"></div>
+                    <div class="volume" data-size="8"></div>
+                    <div class="volume" data-size="9"></div>
+                    <div class="volume" data-size="10"></div>
+                    <p id="sound-up"><img src="img/audioUp.png" onclick="upDownSound('up')"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <p>Greison Böff Developer | All rights reserved.</p>
+    <div id="contact">
+        <a href="https://www.linkedin.com/in/greison-boff/" target="_blank">
+            <img src="img/linkedin.png">
+        </a>
+        <a href="mailto:greisonboff@hotmail.com;greisonboff@gmail.com?subject=Ola Greison Böff" target="_blank">
+            <img src="img/e-mail.png">
+        </a>
+        <a href="https://www.instagram.com/boffgreison/" target="_blank">
+            <img src="img/instagram.png">
+        </a>
+    </div>
+    <div id="footerComunication">
+        <span>For a better experience, rotate the smarphone</span>
+        <img style="margin-top: 20px;" src="img/rotate-phone.gif">
+    </div>
+    <script type="text/javascript" src="application-code.js"></script>
+</footer>
+</html>
